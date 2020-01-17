@@ -16,6 +16,7 @@ module.exports = {
 
         if (!dev) {
             const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`);
+
     
             const { name = login, avatar_url, bio} = apiResponse.data;
         
@@ -25,7 +26,7 @@ module.exports = {
                 type: 'Point',
                 coordinates: [longitude, latitude]
             }
-        
+
             dev = await Dev.create({
                 github_username,
                 name,
